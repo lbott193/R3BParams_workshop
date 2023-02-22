@@ -8,7 +8,8 @@ void param_converter() {
 
     R3BCalifaCrystalCalPar *calPars;
 
-    FairParRootFileIo* inputRoot = new FairParRootFileIo(kTRUE);
+    FairParRootFileIo* inputRoot = new FairParRootFileIo(kTRUE); // from root to par
+    // FairParAsciiFileIo* inputRoot = new FairParAsciiFileIo(kTRUE); // from par to root
 
     FairRuntimeDb* rtdb = FairRuntimeDb::instance();
 
@@ -19,9 +20,12 @@ void param_converter() {
     rtdb->setFirstInput(inputRoot);
 
     Bool_t kParameterMerged = kFALSE;
-    FairParAsciiFileIo* parOut = new FairParAsciiFileIo();
+    FairParAsciiFileIo* parOut = new FairParAsciiFileIo(); // from root to par
+    // FairParRootFileIo* parOut = new FairParRootFileIo(); // from par to root
 
-    parOut->open("../../califa/califacalibparams_v1.par","out");
+    parOut->open("../../califa/califacalibparams_v1.par","out"); // from root to par
+    // parOut->open("../../califa/califacalibparams_v1.root","out"); // from par
+    // to root
     rtdb->setOutput(parOut);
 
 

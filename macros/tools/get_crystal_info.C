@@ -2,7 +2,8 @@ void get_crystal_info(Int_t crystal){
 
 
     /* Here goes your parameter file */
-    TString calFile = "../../califa/califacalibparams_v1.par";
+    //TString calFile = "../../califa/califacalibparams_v1.par";
+    TString calFile = "./corrected_file.par";
     TString mapFile = "../../califa/califamappingparams_v1.par";
 
 

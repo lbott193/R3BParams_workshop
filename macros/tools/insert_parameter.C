@@ -25,19 +25,19 @@ void insert_parameter(){
 
     rtdb->initContainers(1);
 
-    Int_t crystalNumber = 3; // Starts at CryID = 1
+    Int_t crystalNumber = 2182; // Starts at CryID = 1
 
     Int_t offsetPosition = califaCalPar->GetNumParametersFit()*(crystalNumber-1) + 1;
     Int_t slopePosition  = califaCalPar->GetNumParametersFit()*(crystalNumber-1);
 
-    Float_t newOffset = 0.1;
-    Float_t newSlope  = 2.0;
+    Float_t newOffset = 170.;
+    Float_t newSlope  = 1.22;
 
     califaCalPar->SetCryCalParams(newOffset,offsetPosition);
     califaCalPar->SetCryCalParams(newSlope,slopePosition);
 
     FairParAsciiFileIo *parOut = new FairParAsciiFileIo();
-     parOut->open("corrected_file.par", "out");
+    parOut->open("corrected_file.par", "out");
 
     rtdb->setOutput(parOut);
 
